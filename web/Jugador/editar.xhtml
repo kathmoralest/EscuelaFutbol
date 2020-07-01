@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 template="../plantillas/plantilla.xhtml"
+                 xmlns:p="http://primefaces.org/ui"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <h1 align="center"  style="color: menutext">EDITAR JUGADORES</h1>
+        <h:form >    
+            <p:growl id="growl" showDetail="true" sticky="true"/>
+            <p:messages id="messages" showDetail="true" closable="true">
+                <p:autoUpdate/>
+            </p:messages>
+
+            <h3><p:outputLabel for="@next" value=" Nombre Jugador" /> </h3> 
+            <p:selectOneMenu id="jugador" value="#{beanJugador.id}" style="width:125px">
+                <f:selectItem itemLabel="Select One" itemValue="" />
+                <f:selectItems value="#{listaBeanJugadores.jugadores}" var="j" itemValue="#{j.id}" itemLabel="#{j.nombre}" />
+                <f:facet name="footer">
+                    <p:separator />
+                    <h:outputText value="3 consoles" style="font-weight:bold;"/>
+                </f:facet>
+            </p:selectOneMenu>
+
+
+            <br/>
+            <h3>  <p:outputLabel for="@next" value="Posiciones:" /></h3>
+            <p:selectOneMenu id="posiciones" value="#{beanJugador.posicion}" effect="fold" editable="true">
+                <f:selectItem itemLabel="Select One" itemValue="" />
+                <f:selectItems value="#{beanJugador.posiciones}"  />
+            </p:selectOneMenu>
+
+
+            <br/>
+            <p:commandButton  value="Guardar" icon="fa fa-fw fa-save" action="#{beanJugador.modificar()}" class="btn btn-secondary" update="messages,growl"/>   
+            <br />
+            <p:commandButton id="regresar" value="Regresar a la lista"  icon="fa fa-fw fa-arrow-circle-o-left" class="btn btn-warning" action="#{beanJugador.regresar()}"  />
+
+        </h:form>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../plantillas/menu.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <ui:define name="content">
+        <h:form >    
+            <p:panelGrid columns="2">
+                <h3><p:outputLabel for="@next" value="Buscar Categoria" /> </h3> 
+                <p:selectOneMenu id="categoria" value="#{listaBeanCategoriaJugador.pk}" style="width:125px">
+                    <f:selectItem itemLabel="Select One" itemValue="" />
+                    <f:selectItems value="#{listaBeanCategoriaJugador.categoriaJugadors}" var="cj" itemValue="#{cj.jugador.id}" itemLabel="#{cj.jugador.id}" />
+                </p:selectOneMenu>
+                <br/><br />
+                <p:commandButton  value="Buscar" icon="fa fa-fw fa-search" action="#{listaBeanCategoriaJugador.buscarPK()}" update="id,cj,fechaInicio,fechaFin"/>   
+            </p:panelGrid>
+        </h:form>
+
+        <p:panelGrid style="margin-top:20px" >
+
+            <f:facet name="header">
+                <p:row >
+                    <p:column colspan="5" >
+                        <p:panelGrid columns="2" > 
+                            <f:facet name="header">
+                                <i class="fas fa-calendar-times"></i>
+                            </f:facet>
+                        </p:panelGrid>
+                    </p:column>
+                </p:row>
+                <p:row>                    
+                    <p:column colspan="2">Estatus categoria</p:column>
+                </p:row>
+            </f:facet>
+            <p:row>
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="ID jugador:" />
+                </p:column>
+                <p:column >
+                    <h:outputText id="id" value="#{listaBeanCategoriaJugador.categoriaJugador.jugador.id}"/>
+                </p:column>
+            </p:row>
+
+
+            <p:row>
+                <p:column colspan="4" styleClass="ui-widget-header">
+                    <p:spacer height="0"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="Categoria:" />
+                </p:column>
+                <p:column >
+                    <h:outputText id="cj" value="#{listaBeanCategoriaJugador.categoriaJugador.categoria.nombre}"/>
+                </p:column>
+            </p:row>
+
+
+
+            <p:row>
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="Fecha inicio:" />
+                </p:column>
+                <p:column >
+                    <h:outputText id="fechaInicio" value="#{listaBeanCategoriaJugador.categoriaJugador.fechaInicio}"/>
+                </p:column>
+            </p:row>
+
+
+            <p:row>
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="Fecha fin:" />
+                </p:column>
+                <p:column >
+                    <h:outputText id="fechaFin" value="#{listaBeanCategoriaJugador.categoriaJugador.fechaFin}"/>
+                </p:column>
+            </p:row>
+
+
+            <f:facet name="footer">
+                <p:row>
+                    <p:column  colspan="4" style="text-align: right">
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                        <i class="fas fa-calendar-times"></i>
+                    </p:column>
+                </p:row>
+            </f:facet>
+
+        </p:panelGrid>
+    </ui:define>
+
+
+
+</ui:composition>

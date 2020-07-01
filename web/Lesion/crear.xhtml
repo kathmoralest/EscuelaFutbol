@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 template="../plantillas/plantilla.xhtml"
+                 xmlns:p="http://primefaces.org/ui"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="content">
+        <h1 align="center"  style="color: menutext">REGISTAR LESIÓN</h1>
+
+        <h:form>    
+            <p:growl id="growl" showDetail="true" sticky="true"/>
+            <p:messages id="messages" showDetail="true" closable="true">
+                <p:autoUpdate/>
+            </p:messages>
+
+            <h3> Id</h3>
+            <p:inputText value="#{beanLesion.id}"/>
+            <br/>
+
+            <h3>Descripcion</h3>
+            <p:inputText value="#{beanLesion.descripcion}"/>
+
+
+            <br/><br/>
+            <p:commandButton value="Guardar" icon="fa fa-fw fa-save"  action="#{beanLesion.insertar()}"  class="btn btn-secondary" update="messages,growl"/>   
+            <br/>
+            <p:commandButton id="regresar" value="Regresar a la lista"  icon="fa fa-fw fa-arrow-circle-o-left" class="btn btn-warning" action="#{beanLesion.regresar()}"  />
+
+        </h:form>
+    </ui:define>
+
+</ui:composition>

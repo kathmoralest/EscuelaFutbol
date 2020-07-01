@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+        <script src="https://kit.fontawesome.com/184126854a.js" crossorigin="anonymous"></script>
+
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+                <h:form>
+
+
+                    <p:menubar class="py-2 bg-info text-white" style="background-color: #17a2b8;" >
+
+                        <p:menuitem value="Inicio"  icon="fa fa-home" url="#" />
+
+                        <p:submenu  label="Hoja de vida" icon="fas fa-clipboard-list">
+                            <p:submenu label="Tarjeta-ID" icon="fas fa-address-card">
+                                <p:menuitem  value=" Datos personales "  url="../Persona/index.xhtml" icon="fas fa-pencil-ruler" />
+                                <p:separator/>
+                                <p:menuitem  value="Ficha tecnica"   url="../Usuario/fichaTecnica.xhtml" icon="fas fa-running" />
+                            </p:submenu>
+
+                            <p:menuitem  value="Estatus categoria"   url="../Usuario/estatusCategoria.xhtml" icon="fas fa-calendar-times" />
+
+                            <p:submenu label="Reporte deportivo" icon="fas fa-chart-line">
+                                <p:menuitem value="Goles"  url="../Usuario/reportesGoles.xhtml" icon="fas fa-futbol" />
+                                <p:separator/>
+                                <p:menuitem value="Pases Goles"  url="../Usuario/reportesPases.xhtml" icon="fas far fa-magic" />
+                                <p:separator/>
+                                <p:menuitem value="Lesiones"  url="../Usuario/reportesLesiones.xhtml" icon="fas fa-user-injured" />
+                            </p:submenu>
+
+                            <p:submenu label="Seguimiento" icon="fas fa-balance-scale">
+                                <p:menuitem value="Estatura"  url="../Usuario/seguimientoEstatura.xhtml" icon="fas fa-long-arrow-alt-up" />
+                                <p:separator/>
+                                <p:menuitem value="Peso"  url="../Usuario/seguimientoPeso.xhtml"  icon="fas fa-weight-hanging" />
+                                <p:separator/>
+                            </p:submenu>
+
+                        </p:submenu>
+
+                        <p:menuitem value=" Control de pagos" icon="fas fa-donate" url="../Usuario/reportePagos.xhtml"   />
+                        <p:menuitem value="Eventos" icon="far fa-calendar-alt" url="#"   />
+
+                        <f:facet name="options">
+                            <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Search"/>
+                            <p:commandButton type="button" value="Logout" icon="pi pi-home" />
+                        </f:facet>
+                    </p:menubar>
+
+
+                </h:form>
+
+            </ui:insert>
+        </div>
+
+
+        <div>
+            <div id="left">
+                <ui:insert name="left">
+
+                </ui:insert>
+            </div>
+
+            <div id="content" class="container" align="center">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+
+        </div>
+
+        <div id="bottom" class="bg-warning text-white mt-5 p-5">
+            <ui:insert name="bottom" >
+                <footer id="pie-pagina" >
+                    <div class="container">
+                        <div class="col">
+                            <p class="lead text-center">
+                                Copyright &copy; Jean Albert Cortes Ortiz and  Sergio Larrañaga
+                                Universidad Central
+                                <i class="fas fa-futbol"></i>
+                            </p>
+                        </div>
+                    </div>
+                </footer>
+            </ui:insert>
+        </div>
+
+    </h:body>
+
+</html>

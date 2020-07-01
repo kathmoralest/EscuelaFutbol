@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 template="../plantillas/plantilla.xhtml"
+                 xmlns:p="http://primefaces.org/ui"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <a href="../../plantillas/plantilla.xhtml"></a>
+        <h1 align="center"  style="color: menutext">REGISTAR PAGO</h1>
+        <h:form >    
+            <p:growl id="growl" showDetail="true" sticky="true"/>
+
+            <p:messages id="messages" showDetail="true" closable="true">
+                <p:autoUpdate/>
+            </p:messages>
+
+            <h3>N° Factura</h3>
+            <p:inputText value="#{beanPago.id}"/>
+            <br/>
+
+            <h3>  <p:outputLabel for="@next" value=" Nombre Jugador" /> </h3> 
+            <p:selectOneMenu id="gol" value="#{beanPago.jugador.id}" style="width:125px">
+                <f:selectItem itemLabel="Select One" itemValue="" />
+                <f:selectItems value="#{listaBeanJugadores.jugadores}" var="j" itemValue="#{j.id}" itemLabel="#{j.nombre}" />
+                <f:facet name="footer">
+                    <p:separator />
+                    <h:outputText  style="font-weight:bold;"/>
+                </f:facet>
+            </p:selectOneMenu>
+
+            <h4> <p:outputLabel for="button" value="Fecha de pago" /> </h4>
+            <p:calendar id="button" value="#{beanPago.fecha}" showOn="button" />
+
+            <h3>  <p:outputLabel for="@next" value="Periodo de pago"  /></h3>
+            <p:selectOneMenu id="meses" value="#{beanPago.periodoPago}" effect="fold" editable="true">
+                <f:selectItem itemLabel="Seleccione un mes" itemValue="" />
+                <f:selectItems value="#{beanPago.periodoPagos}" />
+            </p:selectOneMenu>
+
+            <h3>Valor</h3>
+            <p:inputText value="#{beanPago.valor}"/>
+           
+            <br/><br/>
+            <p:commandButton value="Guardar" icon="fa fa-fw fa-save"  action="#{beanPago.insertar()}"  class="btn btn-secondary" update="messages,growl"/>   
+            <br/>
+            <p:commandButton id="regresar" value="Regresar a la lista"  icon="fa fa-fw fa-arrow-circle-o-left" class="btn btn-warning" action="#{beanPago.regresar()}"  />
+
+        </h:form>
+    </ui:define>
+
+</ui:composition>

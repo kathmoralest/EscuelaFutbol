@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 template="../plantillas/plantilla.xhtml"
+                 xmlns:p="http://primefaces.org/ui"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <h1 align="center"  style="color: menutext">HOJA DE VIDA</h1>
+
+
+        <h:form >   
+            <p:panelGrid columns="2">
+                <h3><p:outputLabel for="@next" value="Buscar Ficha" /> </h3> 
+                <p:selectOneMenu id="persona" value="#{listaBeanPersonas.pk}" style="width:125px">
+                    <f:selectItem itemLabel="Select One" itemValue="" />
+                    <f:selectItems value="#{listaBeanJugadores.jugadores}" var="p" itemValue="#{p.id}" itemLabel="#{p.nombre}" />
+                </p:selectOneMenu>
+                <br/><br />
+                <p:commandButton  value="Buscar" icon="fa fa-fw fa-search" action="#{listaBeanPersonas.buscarPK()}" update="f,a,n"/>   
+            </p:panelGrid>
+        </h:form>
+
+        <h:form >    
+            <p:panelGrid columns="2">
+                <h3><p:outputLabel for="@next" value="Buscar ficha tecnica" /> </h3> 
+                <p:selectOneMenu id="jugador" value="#{listaBeanJugadores.pk}" style="width:125px">
+                    <f:selectItem itemLabel="Select One" itemValue="" />
+                    <f:selectItems value="#{listaBeanJugadores.jugadores}" var="j" itemValue="#{j.id}" itemLabel="#{j.nombre}" />
+                </p:selectOneMenu>
+                <br/><br />
+                <p:commandButton  value="Buscar" icon="fa fa-fw fa-search" action="#{listaBeanJugadores.buscarPK()}" update="i,p,c"/>   
+            </p:panelGrid>
+        </h:form>
+
+        <h:form >    
+            <p:panelGrid columns="2">
+                <h3><p:outputLabel for="@next" value="Buscar Categoria" /> </h3> 
+                <p:selectOneMenu id="categoria" value="#{listaBeanCategoriaJugador.pk}" style="width:125px">
+                    <f:selectItem itemLabel="Select One" itemValue="" />
+                    <f:selectItems value="#{listaBeanCategoriaJugador.categoriaJugadors}" var="cj" itemValue="#{cj.jugador.id}" itemLabel="#{cj.jugador.nombre}" />
+                </p:selectOneMenu>
+                <br/><br />
+                <p:commandButton  value="Buscar" icon="fa fa-fw fa-search" action="#{listaBeanCategoriaJugador.buscarPK()}" update="cj"/>   
+            </p:panelGrid>
+        </h:form>
+
+
+        <p:panelGrid style="margin-top:20px" >
+            <f:facet name="header">
+                <p:row >
+                    <p:column colspan="7" >
+                        <p:panelGrid columns="2" > 
+                            <f:facet name="header">
+                                <img src="../resources/imagenes/jugador.jpg" alt=""/>
+                            </f:facet>
+                        </p:panelGrid>
+
+
+                    </p:column>
+
+                </p:row>
+                <p:row>
+                    <p:column colspan="2">Ficha</p:column>
+                    <p:column colspan="2">Datos Personales</p:column>
+                    <p:column colspan="2">Categoria</p:column>
+                    <p:column>Champion</p:column>
+                </p:row>
+
+            </f:facet>
+
+            <p:row>
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="ID:" />
+                </p:column>
+                <p:column >
+                    <h:outputText id="i" value="#{listaBeanJugadores.jugador.id}"/>
+                </p:column>
+
+
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="Nombre:" />
+                </p:column>
+                <p:column >
+                    <h:outputText id="n" value="#{listaBeanPersonas.persona.nombre}"/>
+                </p:column>
+
+
+
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="Categoria:" />
+                </p:column>
+                <p:column >
+                    <h:outputText id="cj" value="#{listaBeanCategoriaJugador.categoriaJugador.categoria.nombre}"/>
+                </p:column>
+
+                <p:column rowspan="11" style="font-weight: bold;">Chicago</p:column>
+            </p:row>
+
+            <p:row>
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="Posicion:" />
+                </p:column>
+
+                <p:column >
+                    <h:outputText id="p" value="#{listaBeanJugadores.jugador.posicion}"/>
+                </p:column>
+
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="Apellido:" />
+                </p:column>
+
+                <p:column >
+                    <h:outputText id="a" value="#{listaBeanPersonas.persona.apellido}"/>
+                </p:column>
+
+
+            </p:row>
+
+            <p:row>
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="Contacto Emergencia:" />
+                </p:column>
+
+                <p:column >
+                    <h:outputText id="c" value="#{listaBeanJugadores.jugador.contactoEmergencia.nombre}"/>
+                </p:column>
+                <p:column style="font-weight: bold;">
+
+                    <h:outputText value="Fecha Nacimiento:" />
+
+                </p:column>
+
+                <p:column >
+                    <h:outputText id="f" value="#{listaBeanPersonas.persona.fechaNacimiento}"/>
+                </p:column>
+
+            </p:row>
+
+            <p:row>
+                <p:column colspan="4" styleClass="ui-widget-header">
+                    <p:spacer height="0"/>
+                </p:column>
+            </p:row>
+
+
+
+            <p:row>
+
+
+            </p:row>
+
+
+
+            <f:facet name="footer">
+                <p:row>
+                    <p:column  colspan="4" style="text-align: right">
+                        Finals MVP
+                    </p:column>
+                    <p:column  colspan="3" rowspan="3">
+                        Jugador de futbol (Real Madrid)
+                    </p:column>
+                </p:row>
+
+            </f:facet>
+        </p:panelGrid>
+
+
+    </ui:define>
+
+</ui:composition>

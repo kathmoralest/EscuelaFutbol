@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../plantillas/menu.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <ui:define name="content">
+
+        <h:form>
+            <p:panelGrid columns="2">
+                <h3><p:outputLabel for="@next" value="Buscar estatura del jugador" /> </h3> 
+                <p:selectOneMenu id="jugador" value="#{listaBeanEstatura.pk}" style="width:125px">
+                    <f:selectItem itemLabel="Select One" itemValue="" />
+                    <f:selectItems value="#{listaBeanJugadores.jugadores}" var="j" itemValue="#{j.id}" itemLabel="#{j.nombre}" />
+                </p:selectOneMenu>
+                <br/><br />
+                <p:commandButton  value="Buscar" icon="fa fa-fw fa-search" action="#{listaBeanLesionJugador.buscarPK()}" update="dtlesiones"/>   
+            </p:panelGrid>  
+        </h:form>
+
+
+
+        <p:panelGrid style="margin-top:20px" >
+
+            <f:facet name="header">
+                <p:row >
+                    <p:column colspan="5"  >
+                        <p:panelGrid columns="2"  > 
+                            <f:facet name="header" >
+                                <img  src="../resources/imagenes/estatura.png" alt=""/>
+                                <p:column colspan="2" >Seguimiento estatura</p:column>
+                            </f:facet>
+                        </p:panelGrid>
+                    </p:column>
+                </p:row>
+                <p:row>                    
+                    <p:column colspan="5">
+                        <p:dataTable id="dtlesiones" value="#{listaBeanEstatura.estaturasByIds}" var="estaturaJugador" >
+
+                            <p:column headerText="Jugador ID" >
+                                <h:outputText value="#{estaturaJugador.jugador.id}" />
+                            </p:column>
+
+                            <p:column headerText="Fecha">
+                                <h:outputText value="#{estaturaJugador.fecha}" />
+                            </p:column>
+
+                            <p:column headerText="Estatura">
+                                <h:outputFormat value="#{estaturaJugador.estatura}"/>
+
+                            </p:column>
+
+                        </p:dataTable>
+                    </p:column>
+                    <!--  <p:column colspan="2">Asistencia</p:column> -->
+                </p:row>
+            </f:facet>
+
+
+        </p:panelGrid>
+    </ui:define>
+
+
+
+</ui:composition>

@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../plantillas/menu.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <ui:define name="content">
+        <h:form >   
+            <p:panelGrid columns="2">
+                <h3><p:outputLabel for="@next" value="Datos personales" /> </h3> 
+                <p:selectOneMenu id="persona" value="#{listaBeanPersonas.pk}" style="width:125px">
+                    <f:selectItem itemLabel="Select One" itemValue="" />
+                    <f:selectItems value="#{listaBeanJugadores.jugadores}" var="p" itemValue="#{p.id}" itemLabel="#{p.nombre}" />
+                </p:selectOneMenu>
+                <br/><br />
+                <p:commandButton  value="Buscar" icon="fa fa-fw fa-search" action="#{listaBeanPersonas.buscarPK()}" update="id,nombre,apellido,fechaNacimiento,correo"/>   
+            </p:panelGrid>
+        </h:form>
+        <p:panelGrid style="margin-top:20px" >
+
+            <f:facet name="header">
+                <p:row >
+                    <p:column colspan="5" >
+                        <p:panelGrid columns="2" > 
+                            <f:facet name="header">
+                                <img src="../resources/imagenes/jugador.jpg" alt=""/>
+                            </f:facet>
+                        </p:panelGrid>
+                    </p:column>
+                </p:row>
+                <p:row>                    
+                    <p:column colspan="2">Datos personales</p:column>
+                </p:row>
+            </f:facet>
+
+
+            <p:row>
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="ID" />
+                </p:column>
+                <p:column >
+                    <h:outputText id="id" value="#{listaBeanPersonas.persona.id}"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column colspan="4" styleClass="ui-widget-header">
+                    <p:spacer height="0"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="Nombre:" />
+                </p:column>
+                <p:column >
+                    <h:outputText id="nombre" value="#{listaBeanPersonas.persona.nombre}"/>
+                </p:column>
+            </p:row>
+
+
+
+            <p:row>
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="Apellido:" />
+                </p:column>
+                <p:column >
+                    <h:outputText id="apellido" value="#{listaBeanPersonas.persona.apellido}"/>
+                </p:column>
+            </p:row>
+
+
+
+            <p:row>
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="Fecha Nacimiento:" />
+                </p:column>
+                <p:column >
+                    <h:outputText id="fechaNacimiento" value="#{listaBeanPersonas.persona.fechaNacimiento}"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column style="font-weight: bold;">
+                    <h:outputText value="Correo:" />
+                </p:column>
+                <p:column >
+                    <h:outputText id="correo" value="#{listaBeanPersonas.persona.correo}"/>
+                </p:column>
+            </p:row>
+
+
+
+
+            <f:facet name="footer">
+                <p:row>
+                    <p:column  colspan="4" style="text-align: right">
+                        <i class="fas fa-futbol"></i>
+                        <i class="fas fa-futbol"></i>
+                        <i class="fas fa-futbol"></i>
+                        <i class="fas fa-futbol"></i>
+                        <i class="fas fa-futbol"></i>
+                        <i class="fas fa-futbol"></i>
+                        <i class="fas fa-futbol"></i>
+                        <i class="fas fa-futbol"></i>
+                        <i class="fas fa-futbol"></i>
+                        <i class="fas fa-futbol"></i>
+                        <i class="fas fa-futbol"></i>
+                        <i class="fas fa-futbol"></i>
+                    </p:column>
+                </p:row>
+            </f:facet>
+
+        </p:panelGrid>
+    </ui:define>
+
+
+
+</ui:composition>
