@@ -13,6 +13,15 @@ public class Jugador extends Persona {
 
     private ContactoEmergencia contactoEmergencia;
     private String posicion;
+    private BigDecimal  estatura;
+
+    public BigDecimal getEstatura() {
+            return estatura;
+    }
+
+    public void setEstatura(BigDecimal estatura) {
+        this.estatura = estatura;
+    }
 
     public Jugador() {
     }
