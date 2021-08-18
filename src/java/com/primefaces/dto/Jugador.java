@@ -41,22 +41,6 @@ public class Jugador extends Persona {
         this.estatura = estatura;
     }
 
-    public BigDecimal getEstatura() {
-            return estatura;
-    }
-
-    public void setEstatura(BigDecimal estatura) {
-        this.estatura = estatura;
-    }
-    
-    public BigDecimal getEstatura() {
-            return estatura;
-    }
-
-    public void setEstatura(BigDecimal estatura) {
-        this.estatura = estatura;
-    }
-
     public Jugador() {
     }
 
