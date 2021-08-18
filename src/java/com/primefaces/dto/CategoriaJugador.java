@@ -9,26 +9,42 @@ import java.sql.Date;
 public class CategoriaJugador {
 
     private Jugador jugador;
-    private Categoria categoria;
     private Date fechaInicio;
-    private Date fechaFin;
+    private Date fechaFin;    
+    private long idCategoria;
+    private String nombreCategoria;
+
+    public long getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(long idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public String getNombreCategoria() {
+        return nombreCategoria;
+    }
+
+    public void setNombreCategoria(String nombreCategoria) {
+        this.nombreCategoria = nombreCategoria;
+    }    
 
     public CategoriaJugador() {
     }
+        
+    @Override
+    public String toString() {
+        return "Categoria Jugador{" + "categoria=" + categoria + "idCategoria=" + idCategoria + ", nombreCategoria=" + nombreCategoria
+                    + ", jugador=" + jugador + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + '}';
+    }
 
-    public CategoriaJugador(Jugador jugador, Categoria categoria, Date fechaInicio, Date fechaFin) {
+    public CategoriaJugador(Jugador jugador, long idCategoria, String nombreCategoria, Date fechaInicio, Date fechaFin) {
         this.jugador = jugador;
-        this.categoria = categoria;
+        this.idCategoria = idCategoria;
+        this.nombreCategoria = nombreCategoria;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
     }
 
     public Jugador getJugador() {
@@ -55,9 +71,5 @@ public class CategoriaJugador {
         this.fechaFin = fechaFin;
     }
 
-    @Override
-    public String toString() {
-        return "CategoriaJugador{" + "categoria=" + categoria + ", jugador=" + jugador + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + '}';
-    }
 
 }
