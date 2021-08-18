@@ -35,7 +35,7 @@ public class CategoriaJugador {
         
     @Override
     public String toString() {
-        return "Categoria Jugador{" + "categoria=" + categoria + "idCategoria=" + idCategoria + ", nombreCategoria=" + nombreCategoria
+        return "Categoria Jugador{" + "idCategoria=" + idCategoria + ", nombreCategoria=" + nombreCategoria
                     + ", jugador=" + jugador + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + '}';
     }
 
