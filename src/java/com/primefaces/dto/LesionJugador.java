@@ -10,21 +10,39 @@ public class LesionJugador {
 
     private Date fecha;
     private Jugador jugador;
-    private Lesion lesion;
-
+    private long id;
+    private String descripcion;
+    
     public LesionJugador() {
     }
 
-    public LesionJugador(Date fecha, Jugador jugador, Lesion lesion) {
+    public LesionJugador(Date fecha, Jugador jugador, long id, String descripcion) {
         this.fecha = fecha;
         this.jugador = jugador;
-        this.lesion = lesion;
+        this.id = id;
+        this.descripcion = descripcion;
     }
 
     public Date getFecha() {
         return fecha;
     }
 
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
@@ -38,17 +56,8 @@ public class LesionJugador {
         this.jugador = jugador;
     }
 
-    public Lesion getLesion() {
-        return lesion;
-    }
-
-    public void setLesion(Lesion lesion) {
-        this.lesion = lesion;
-    }
-
     @Override
     public String toString() {
-        return "LesionJugador{" + "fecha=" + fecha + ", jugador=" + jugador.getNombre() + ", lesion=" + lesion.getId() + '}';
+        return "LesionJugador{" + "id=" + id + ", descripcion=" + descripcion + "fecha=" + fecha + ", jugador=" + jugador.getNombre() + ", lesion=" + lesion.getId() + '}';
     }
-
 }
