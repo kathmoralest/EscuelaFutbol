@@ -14,7 +14,41 @@ public class Jugador extends Persona {
     private ContactoEmergencia contactoEmergencia;
     private String posicion;
     private BigDecimal  estatura;
+    private ArrayList<LesionJugador> lesiones;
+    private int edad;
+    
+    public int getEdad() {
+            return edad;
+    }
 
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+    
+    public ArrayList<LesionJugador> getLesiones() {
+            return lesiones;
+    }
+
+    public void setLesiones(ArrayList<LesionJugador> lesiones) {
+        this.lesiones = lesiones;
+    }
+        
+    public BigDecimal getEstatura() {
+            return estatura;
+    }
+
+    public void setEstatura(BigDecimal estatura) {
+        this.estatura = estatura;
+    }
+
+    public BigDecimal getEstatura() {
+            return estatura;
+    }
+
+    public void setEstatura(BigDecimal estatura) {
+        this.estatura = estatura;
+    }
+    
     public BigDecimal getEstatura() {
             return estatura;
     }
